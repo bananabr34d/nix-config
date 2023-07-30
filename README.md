@@ -205,7 +205,7 @@ MATE Desktop 🧉 and Pantheon 🏛️ are the two desktop options available. Th
 
 ### Services
 
-- [ ] Integrate Borg Backups using [Pika](https://apps.gnome.org/en-GB/app/org.gnome.World.PikaBackup/)
+- [ ] Integrate Borg Backups using [Pika](https://apps.gnome.org/en-US/app/org.gnome.World.PikaBackup/)
   - [x] [Vorta](https://vorta.borgbase.com/) for workstations
   - [ ] [borgmatic](https://torsion.org/borgmatic/) for servers
 - [ ] ~~Integrate cockpit (*server*)~~
