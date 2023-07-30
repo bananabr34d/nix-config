@@ -6,7 +6,19 @@
     ../_mixins/hardware/systemd-boot.nix
     ../_mixins/services/pipewire.nix
   ];
+  
+  # disko does manage mounting / and /boot, but I want to mount by-partlabel
+  fileSystems."/" = lib.mkForce {
+    device = "/dev/disk/by-partlabel/root";
+    fsType = "xfs";
+    options = [ "defaults" "relatime" "nodiratime" ];
+  };
 
+  fileSystems."/boot" = lib.mkForce {
+    device = "/dev/disk/by-partlabel/ESP";
+    fsType = "vfat";
+  };
+  
   swapDevices = [{
     device = "/swap";
     size = 1024;
