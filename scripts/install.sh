@@ -3,7 +3,7 @@
 set -euo pipefail
 
 TARGET_HOST="${1:-}"
-TARGET_USER="${2:-joe}"
+TARGET_USER="${2:-}"
 
 if [ "$(id -u)" -eq 0 ]; then
   echo "ERROR! $(basename "$0") should be run as a regular user"
