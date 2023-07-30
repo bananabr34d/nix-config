@@ -2,7 +2,7 @@
 # For actuall installs pantheon-apps.nix is also included
 { pkgs, ... }: {
   imports = [
-    ./qt-style.nix
+    # ./qt-style.nix
     ../services/networkmanager.nix
   ];
 
@@ -20,10 +20,6 @@
       gnome-tour      
     ];
 
-    # App indicator
-    # - https://discourse.nixos.org/t/anyone-with-pantheon-de/28422
-    # - https://github.com/NixOS/nixpkgs/issues/144045#issuecomment-992487775
-    pathsToLink = [ "/libexec" ];
   };
 
   services = {
