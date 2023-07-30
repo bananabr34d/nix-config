@@ -5,57 +5,44 @@ in
 {
   disko.devices = {
     disk = {
-      nvme0 = {
+      vda = {
         type = "disk";
         device = builtins.elemAt disks 0;
         content = {
-          type = "gpt";
-          partitions = {
-            ESP = {
-              label = "EFI";
+          type = "table";
+          format = "gpt";
+          partitions = [{
+            name = "boot";
+            start = "0%";
+            end = "1M";
+            flags = [ "bios_grub" ];
+          }
+            {
               name = "ESP";
-              size = "512M";
-              type = "EF00" ;
+              start = "1M";
+              end = "550MiB";
+              bootable = true;
+              flags = [ "esp" ];
+              fs-type = "fat32";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [
-                  "defaults"
-                ];
               };
-            };
-            luks = {
-              size = "100%";
+            }
+            {
+              name = "root";
+              start = "550MiB";
+              end = "100%";
               content = {
-                type = "luks";
-                name = "crypted";
-                extraOpenArgs = [ "--allow-discards" ];
-                # if you want to use the key for interactive login be sure there is no trailing newline
-                # for example use `echo -n "password" > /tmp/secret.key`
-                #keyFile = "/tmp/secret.key"; # Interactive
-                settings.keyFile = "/tmp/secret.key";
-                content = {
-                  type = "btrfs";
-                  extraArgs = [ "-f" ];
-                  subvolumes = {
-                    "/root" = {
-                      mountpoint = "/";
-                      mountOptions = [ "compress=zstd" "noatime" ];
-                    };
-                    "/home" = {
-                      mountpoint = "/home";
-                      mountOptions = [ "compress=zstd" "noatime" ];
-                    };
-                    "/nix" = {
-                      mountpoint = "/nix";
-                      mountOptions = [ "compress=zstd" "noatime" ];
-                    };
-                  };
-                };
+                type = "filesystem";
+                # Overwirte the existing filesystem
+                extraArgs = [ "-f" ];
+                format = "xfs";
+                mountpoint = "/";
+                mountOptions = defaultXfsOpts;
               };
-            };
-          };
+            }];
         };
       };
     };
