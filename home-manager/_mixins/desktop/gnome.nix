@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib.hm.gvariant;
 {
-
+  dconf.settings = {
     "org/gnome/desktop/datetime" = {
       automatic-timezone = true;
     };
@@ -13,9 +13,8 @@ with lib.hm.gvariant;
     "org/gtk/Settings/FileChooser" = {
       clock-format = "24h";
     };
-
   };
-
+  
   gtk = {
 
     font = {
