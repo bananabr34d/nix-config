@@ -61,7 +61,7 @@
         #  - nix build .#nixosConfigurations.hydrogen.config.system.build.toplevel
         hydrogen = libx.mkHost { hostname = "hydrogen"; username = "joe"; desktop = "pantheon"; };
         oxygen = libx.mkHost { hostname = "oxygen"; username = "joe"; desktop = "pantheon"; };
-        lithium = libx.mkHost { hostname = "lithium"; username = "joe"; desktop = "pantheon"; };
+        lithium = libx.mkHost { hostname = "lithium"; username = "joe"; desktop = "gnome"; };
         carbon = libx.mkHost { hostname = "carbon"; username = "joe"; desktop = "pantheon"; };
         # Servers
         helium = libx.mkHost { hostname = "helium"; username = "joe"; };
