@@ -43,6 +43,8 @@
       };
     };
   };
+  programs.xwayland.enable = true;
+
   environment.systemPackages = with pkgs;
     with gnomeExtensions; [
       gnome.dconf-editor
