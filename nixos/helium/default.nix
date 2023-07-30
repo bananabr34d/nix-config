@@ -62,7 +62,7 @@
   boot = {
     blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-    kernelModules = [ "amdgpu" "kvm-amd" "nvidia" ];
+    kernelModules = [ "amdgpu" "kvm-amd" ];
     kernelPackages = lib.mkDefault pkgs.linuxPackages_6_3;
   };
 
@@ -70,26 +70,13 @@
     nvtop
   ];
 
-  hardware = {
-    mwProCapture.enable = true;
-    nvidia = {
-      prime = {
-        amdgpuBusId = "PCI:23:0:0";
-        nvidiaBusId = "PCI:3:0:0";
-        # Make the Radeon RX6700 default. The NVIDIA T1000 is on for CUDA/NVENC
-        reverseSync.enable = true;
-      };
-      nvidiaSettings = false;
-    };
-  };
-
   services = {
     hardware.openrgb = {
       enable = true;
       motherboard = "amd";
       package = pkgs.openrgb-with-all-plugins;
     };
-    xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+    xserver.videoDrivers = [ "amdgpu" ];
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
