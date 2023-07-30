@@ -39,7 +39,7 @@
         # Workstations
         "joe@hydrogen" = libx.mkHome { hostname = "hydrogen"; username = "joe"; desktop = "pantheon"; };
         "joe@oxygen" = libx.mkHome { hostname = "oxygen"; username = "joe"; desktop = "pantheon"; };
-        "joe@lithium" = libx.mkHome { hostname = "lithium"; username = "joe"; desktop = "pantheon"; };
+        "joe@lithium" = libx.mkHome { hostname = "lithium"; username = "joe"; desktop = "gnome"; };
         "joe@carbon" = libx.mkHome { hostname = "carbon"; username = "joe"; desktop = "pantheon"; };
         # Servers
         "joe@helium" = libx.mkHome { hostname = "helium"; username = "joe"; };
