@@ -8,15 +8,15 @@
 
   # Exclude the elementary apps I don't use
   environment = {
-    gnome.excludePackages = with pkgs.gnome; [
-      gnome-weather
-      gnome-calendar
-      gnome-maps
-      gnome-contacts
-      gnome-software
-      totem
-      epiphany
-      evince
+    gnome.excludePackages = with pkgs; [
+      gnome.gnome-weather
+      gnome.gnome-calendar
+      gnome.gnome-maps
+      gnome.gnome-contacts
+      gnome.gnome-software
+      gnome.totem
+      gnome.epiphany
+      gnome.evince
       gnome-tour      
     ];
 
