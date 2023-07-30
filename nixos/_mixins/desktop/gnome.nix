@@ -17,7 +17,7 @@
       totem
       epiphany
       evince
-      tour      
+      gnome-tour      
     ];
 
     # App indicator
