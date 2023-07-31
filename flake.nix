@@ -35,12 +35,12 @@
       homeConfigurations = {
         # .iso images
         "joe@iso-console" = libx.mkHome { hostname = "iso-console"; username = "nixos"; };
-        "joe@iso-desktop" = libx.mkHome { hostname = "iso-desktop"; username = "nixos"; desktop = "pantheon"; };
+        "joe@iso-desktop" = libx.mkHome { hostname = "iso-desktop"; username = "nixos"; desktop = "gnome"; };
         # Workstations
-        "joe@hydrogen" = libx.mkHome { hostname = "hydrogen"; username = "joe"; desktop = "pantheon"; };
-        "joe@oxygen" = libx.mkHome { hostname = "oxygen"; username = "joe"; desktop = "pantheon"; };
+        "joe@hydrogen" = libx.mkHome { hostname = "hydrogen"; username = "joe"; desktop = "gnome"; };
+        "joe@oxygen" = libx.mkHome { hostname = "oxygen"; username = "joe"; desktop = "gnome"; };
         "joe@lithium" = libx.mkHome { hostname = "lithium"; username = "joe"; desktop = "gnome"; };
-        "joe@carbon" = libx.mkHome { hostname = "carbon"; username = "joe"; desktop = "pantheon"; };
+        "joe@carbon" = libx.mkHome { hostname = "carbon"; username = "joe"; desktop = "gnome"; };
         # Servers
         "joe@helium" = libx.mkHome { hostname = "helium"; username = "joe"; };
         "joe@neon" = libx.mkHome { hostname = "neon"; username = "joe"; };
@@ -53,16 +53,16 @@
         # .iso images
         #  - nix build .#nixosConfigurations.{iso-console|iso-desktop}.config.system.build.isoImage
         iso-console = libx.mkHost { hostname = "iso-console"; username = "nixos"; installer = nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"; };
-        iso-desktop = libx.mkHost { hostname = "iso-desktop"; username = "nixos"; installer = nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares.nix"; desktop = "pantheon"; };
-        iso-gpd-edp = libx.mkHost { hostname = "iso-gpd-edp"; username = "nixos"; installer = nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares.nix"; desktop = "pantheon"; };
-        iso-gpd-dsi = libx.mkHost { hostname = "iso-gpd-dsi"; username = "nixos"; installer = nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares.nix"; desktop = "pantheon"; };
+        iso-desktop = libx.mkHost { hostname = "iso-desktop"; username = "nixos"; installer = nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares.nix"; desktop = "gnome"; };
+        iso-gpd-edp = libx.mkHost { hostname = "iso-gpd-edp"; username = "nixos"; installer = nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares.nix"; desktop = "gnome"; };
+        iso-gpd-dsi = libx.mkHost { hostname = "iso-gpd-dsi"; username = "nixos"; installer = nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares.nix"; desktop = "gnome"; };
         # Workstations
         #  - sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
         #  - nix build .#nixosConfigurations.hydrogen.config.system.build.toplevel
-        hydrogen = libx.mkHost { hostname = "hydrogen"; username = "joe"; desktop = "pantheon"; };
-        oxygen = libx.mkHost { hostname = "oxygen"; username = "joe"; desktop = "pantheon"; };
+        hydrogen = libx.mkHost { hostname = "hydrogen"; username = "joe"; desktop = "gnome"; };
+        oxygen = libx.mkHost { hostname = "oxygen"; username = "joe"; desktop = "gnome"; };
         lithium = libx.mkHost { hostname = "lithium"; username = "joe"; desktop = "gnome"; };
-        carbon = libx.mkHost { hostname = "carbon"; username = "joe"; desktop = "pantheon"; };
+        carbon = libx.mkHost { hostname = "carbon"; username = "joe"; desktop = "gnome"; };
         # Servers
         helium = libx.mkHost { hostname = "helium"; username = "joe"; };
         neon = libx.mkHost { hostname = "neon"; username = "joe"; };
