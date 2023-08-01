@@ -25,6 +25,7 @@
     inkscape
     libreoffice
     meld
+    mullvad-browser
     netflix
     pick-colour-picker
     rhythmbox
@@ -37,7 +38,8 @@
     unstable.fluffychat
     unstable.gitkraken
     unstable.tdesktop
-    unstable.vscode-fhs
+    #unstable.vscode-fhs
+    unstable.vscodium
     unstable.wavebox
   ];
 
